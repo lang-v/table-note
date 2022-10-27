@@ -121,8 +121,6 @@ locales-国际化（中英文manifest.json）
 }
 ```
 
-
-
 # 示例项目
 
 hello-world
@@ -168,6 +166,55 @@ manifest.json
             "description": "Opens index.html"
         }
     }
+}
+```
+
+
+
+# v3
+
+参考文档：[迁移到 Manifest V3 · GitBook](https://doc.yilijishu.info/chrome/mv3-migration.html)
+
+```
+{
+	# 扩展程序的名称
+	"name": "练手项目",
+	# 扩展程序的描述
+	"description": "这是一个扩展程序",
+	# 扩展程序的版本
+	"version": "1.0",
+	# manifest的版本号
+	"manifest_version": 3,
+	# 引用后台脚本
+	"background": {
+		"service_worker": "js/background.js"
+	},
+	# 权限获取
+	"permissions": [
+		# 存储
+		"storage"，
+		# 访问活动选项卡
+		"activeTab",
+		# 脚本（上下文）
+        "scripting"
+	],
+	# 声明弹出窗口的资源
+	"action": {
+		"default_popup": "./popup/index.html",
+		"default_icon": {
+			"16": "/images/logo.png",
+			"32": "/images/logo32.png",
+			"48": "/images/logo48.png"
+		}
+	}
+	# 扩展程序管理页面的图标
+	"icons": {
+        "16": "/images/logo.png",
+        "32": "/images/logo32.png",
+        "48": "/images/logo48.png"
+    }，
+	# 选项卡网页
+	"options_page": "/options/options.html"
 }
 ```
 
