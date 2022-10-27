@@ -1,33 +1,28 @@
 {
-    "name": "table-tools",
-    "description": "this is tables tools",
+    "name": "练手项目",
+    "description": "这是一个扩展程序",
     "version": "1.0",
-    "manifest_version": 2,
-    "permissions": [
-        "contextMenus"
-    ],
+    "manifest_version": 3,
     "background": {
-        "scripts": [
-            "background/index.js"
-        ]
+        "service_worker": "js/background.js"
+    },
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "action": {
+        "default_popup": "./popup/index.html",
+        "default_icon": {
+            "16": "/images/logo.png",
+            "32": "/images/logo32.png",
+            "48": "/images/logo48.png"
+        }
     },
     "icons": {
-        "16": "images/logo.png",
-        "48": "images/logo32.png",
-        "128": "images/logo48.png"
+        "16": "/images/logo.png",
+        "32": "/images/logo32.png",
+        "48": "/images/logo48.png"
     },
-    "browser_action": {
-        "default_title": "plugin title",
-        "default_popup": "./popup/index.html",
-        "default_icon": "./images/logo.png"
-    },
-    "commands": {
-        "_execute_browser_action": {
-            "suggested_key": {
-                "default": "Ctrl+Shift+F",
-                "mac": "MacCtrl+Shift+F"
-            },
-            "description": "Opens index.html"
-        }
-    }
+    "options_page": "/options/options.html"
 }
