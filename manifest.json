@@ -11,6 +11,17 @@
         "activeTab",
         "scripting"
     ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "js/content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
     "action": {
         "default_popup": "./popup/index.html",
         "default_icon": {
