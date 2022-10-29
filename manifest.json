@@ -19,6 +19,9 @@
             "js": [
                 "js/content.js"
             ],
+            "css":[
+                "css/table-note-style.css"
+            ],
             "run_at": "document_end"
         }
     ],
