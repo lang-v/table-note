@@ -2,9 +2,9 @@
 let changeColor = document.getElementById("changeColor");
 
 //保存变量
-chrome.storage.sync.get("color", ({ color }) => {
-    changeColor.style.backgroundColor = color;
-});
+// chrome.storage.sync.get("color", ({ color }) => {
+//     changeColor.style.backgroundColor = color;
+// });
 
 // 单击按钮时，将 setPageBackgroundColor 注入当前页面
 changeColor.addEventListener("click", async () => {

@@ -4,12 +4,14 @@
     "version": "1.0",
     "manifest_version": 3,
     "background": {
-        "service_worker": "js/background.js"
+        "service_worker": "background/background.js",
+        "type": "module"
     },
     "permissions": [
         "storage",
         "activeTab",
-        "scripting"
+        "scripting",
+        "contextMenus"
     ],
     "content_scripts": [
         {
@@ -17,7 +19,8 @@
                 "<all_urls>"
             ],
             "js": [
-                "js/content.js"
+                "content/table.js",
+                "content/language.js"
             ],
             "run_at": "document_end"
         }
@@ -34,6 +37,5 @@
         "16": "/images/logo.png",
         "32": "/images/logo32.png",
         "48": "/images/logo48.png"
-    },
-    "options_page": "/options/options.html"
+    }
 }
