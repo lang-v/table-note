@@ -15,6 +15,7 @@ function insertTableCol(table) {
             for (let i = 0; i < count; i++) {
                 let tr = tbody.getElementsByTagName('tr')[i]
                 let td = createTd()
+                monitorTr(tr, td)
                 // 绑定真实tr
                 tr.appendChild(td)
             }
@@ -22,10 +23,22 @@ function insertTableCol(table) {
         }
     }
 }
+//注册监听
+function monitorTr(tr, td) {
+    tr.addEventListener('mouseover', (e)=>{
+        td.style.display = "block"
+    })
+    tr.addEventListener('mouseout', (e)=>{
+        td.style.display = "none"
+    })
+}
+
 
 //  创建td
 function createTd() {
     let td = document.createElement('td')
+    // 先隐藏
+    td.style.display = "none"
     // 文本节点
     let ttext = document.createTextNode('这里插入笔记')
     // 将文本节点绑定到td

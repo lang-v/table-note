@@ -1,5 +1,4 @@
 import hex_md5 from '../js/md5.js'
-// import { encodeUTF8 } from '../js/utf8'
 
 //翻译功能
 async function translateNote(q) {
@@ -22,27 +21,24 @@ async function translateNote(q) {
     }).then((res) => {
         return Promise.resolve(res.json())
     })
-    console.log(sign, result)
-    return result.trans_result[0].dst
+    // console.log(sign, result)
+    return result.trans_result ? result.trans_result[0] : undefined
 }
 
 // 创建菜单
 chrome.contextMenus.create({
-    id: "trans-search",
-    title: "英文搜索",
+    id: "transsearch",
+    title: "英文翻译",
     contexts: ['selection'],
 })
 
-// 监听右键搜索
+
+// 监听右键搜索并发送至扩展内容content
 chrome.contextMenus.onClicked.addListener(async data => {
     let result = await translateNote(data.selectionText)
-    console.log(result)
-    // chrome.runtime.sendMessage({ result });
+    if (result) {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { en: result.src,  zh: result.dst});
+        });
+    }
 })
-
-// 监听来自content-script的消息
-// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-//     console.log('我是request:', request);
-//     console.log('我是sender', sender)
-//     sendResponse("嗯嗯");
-// });

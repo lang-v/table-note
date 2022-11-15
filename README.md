@@ -4,18 +4,17 @@
 
 # 背景
 
-基于开源Chrome插件开发模板开发
+基于开源 Chrome 插件开发模板开发
 
 # 项目架构
 
-background-后台常驻：一般需要一直运行，启动就运行的全局代码放入到background里面
+background-后台常驻：一般需要一直运行，启动就运行的全局代码放入到 background 里面
 
 popup-点击扩展打开的小窗口网页，临时性的交互
 
-locales-国际化（中英文manifest.json）
+locales-国际化（中英文 manifest.json）
 
 待完善。。。
-
 
 # 示例项目
 
@@ -65,8 +64,6 @@ manifest.json
 }
 ```
 
-
-
 # v3
 
 参考文档：[迁移到 Manifest V3 · GitBook](https://doc.yilijishu.info/chrome/mv3-migration.html)
@@ -114,4 +111,4 @@ manifest.json
 }
 ```
 
-
+# 常见问题解决
